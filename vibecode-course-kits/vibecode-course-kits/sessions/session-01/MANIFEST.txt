@@ -1,0 +1,7 @@
+session: 1
+skills:
+  - vibe-build
+  - frontend-design
+  - ui-ux-pro-max
+  - design
+  - copywriting

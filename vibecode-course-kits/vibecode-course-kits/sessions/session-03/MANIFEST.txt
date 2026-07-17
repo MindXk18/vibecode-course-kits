@@ -1,0 +1,12 @@
+session: 3
+skills:
+  - vibe-build
+  - frontend-design
+  - ui-ux-pro-max
+  - design
+  - copywriting
+  - vibe-interact
+  - fix
+  - web-design-guidelines
+  - databases
+  - chatbot-widget
