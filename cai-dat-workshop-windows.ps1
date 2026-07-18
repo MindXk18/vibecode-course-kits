@@ -117,14 +117,10 @@ try {
 
         if ($cloneResult -eq 0) {
             Write-Host "        Clone thanh cong!" -ForegroundColor Green
-            # Chi lay session-01 lam workshop kit
-            $session01 = Join-Path $repoDir "vibecode-course-kits\sessions\session-01"
-            if (-Not (Test-Path $session01)) {
-                # Thu duong dan phang neu khong co subfolder
-                $session01 = Join-Path $repoDir "sessions\session-01"
-            }
-            if (Test-Path $session01) {
-                Copy-Item -Recurse -Force $session01 $targetDir
+            # Tim session-01 bat ke vi tri trong repo (xu ly cau truc long nhau)
+            $session01Item = Get-ChildItem -Path $repoDir -Recurse -Directory -Filter "session-01" | Select-Object -First 1
+            if ($session01Item) {
+                Copy-Item -Recurse -Force $session01Item.FullName $targetDir
                 $downloadSuccess = $true
             } else {
                 Write-Host "        Khong tim thay session-01, chuyen sang ZIP..." -ForegroundColor Yellow
@@ -143,18 +139,14 @@ try {
         Write-Host "  [4/5] Giai nen du lieu..." -ForegroundColor White
         Expand-Archive -Path $zipPath -DestinationPath $tempDir -Force
 
-        # Tim session-01 trong ZIP da giai nen
-        $extractedBase = Join-Path $tempDir "vibecode-course-kits-main"
-        $session01 = Join-Path $extractedBase "vibecode-course-kits\sessions\session-01"
-        if (-Not (Test-Path $session01)) {
-            $session01 = Join-Path $extractedBase "sessions\session-01"
-        }
+        # Tim session-01 bat ke vi tri trong ZIP da giai nen (xu ly cau truc long nhau)
+        $session01Item = Get-ChildItem -Path $tempDir -Recurse -Directory -Filter "session-01" | Select-Object -First 1
 
-        if (-Not (Test-Path $session01)) {
+        if (-Not $session01Item) {
             throw "Khong tim thay thu muc session-01 sau khi giai nen."
         }
 
-        Copy-Item -Recurse -Force $session01 $targetDir
+        Copy-Item -Recurse -Force $session01Item.FullName $targetDir
         $downloadSuccess = $true
         Write-Host "        Giai nen thanh cong!" -ForegroundColor Green
     } else {

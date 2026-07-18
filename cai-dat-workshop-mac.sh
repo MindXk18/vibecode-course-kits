@@ -67,19 +67,10 @@ show_error() {
     echo ""
 }
 
-# Ham tim session-01 tu thu muc goc
+# Ham tim session-01 bat ke vi tri trong cay thu muc (xu ly cau truc long nhau)
 find_session01() {
     local base="$1"
-    # Thu cac duong dan co the
-    for path in \
-        "$base/vibecode-course-kits/sessions/session-01" \
-        "$base/sessions/session-01"; do
-        if [ -d "$path" ]; then
-            echo "$path"
-            return 0
-        fi
-    done
-    return 1
+    find "$base" -type d -name "session-01" 2>/dev/null | head -1
 }
 
 # ==================== BAT DAU ====================
@@ -147,8 +138,8 @@ if [ "$DOWNLOAD_SUCCESS" = false ]; then
         exit 1
     fi
 
-    EXTRACTED_BASE="$TEMP_DIR/vibecode-course-kits-main"
-    SESSION01=$(find_session01 "$EXTRACTED_BASE")
+    # Tim session-01 bat ke vi tri trong ZIP da giai nen
+    SESSION01=$(find_session01 "$TEMP_DIR")
 
     if [ -z "$SESSION01" ]; then
         show_error "Khong tim thay session-01 sau khi giai nen."
