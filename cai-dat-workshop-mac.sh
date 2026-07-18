@@ -110,7 +110,9 @@ if command -v git &> /dev/null; then
         echo -e "${GREEN}        Clone thanh cong!${NC}"
         SESSION01=$(find_session01 "$REPO_DIR")
         if [ -n "$SESSION01" ]; then
-            cp -r "$SESSION01" "$TARGET_DIR"
+            # Tao thu muc dich truoc, sau do copy NOI DUNG vao trong
+            mkdir -p "$TARGET_DIR"
+            cp -r "$SESSION01"/. "$TARGET_DIR/"
             DOWNLOAD_SUCCESS=true
         else
             echo -e "${YELLOW}        Khong tim thay session-01, chuyen sang ZIP...${NC}"
@@ -146,7 +148,9 @@ if [ "$DOWNLOAD_SUCCESS" = false ]; then
         exit 1
     fi
 
-    cp -r "$SESSION01" "$TARGET_DIR"
+    # Tao thu muc dich truoc, sau do copy NOI DUNG vao trong
+    mkdir -p "$TARGET_DIR"
+    cp -r "$SESSION01"/. "$TARGET_DIR/"
     DOWNLOAD_SUCCESS=true
     echo -e "${GREEN}        Giai nen thanh cong!${NC}"
 else

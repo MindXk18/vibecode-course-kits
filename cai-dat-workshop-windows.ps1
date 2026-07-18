@@ -120,7 +120,11 @@ try {
             # Tim session-01 bat ke vi tri trong repo (xu ly cau truc long nhau)
             $session01Item = Get-ChildItem -Path $repoDir -Recurse -Directory -Filter "session-01" | Select-Object -First 1
             if ($session01Item) {
-                Copy-Item -Recurse -Force $session01Item.FullName $targetDir
+                # Tao thu muc dich truoc, sau do copy NOI DUNG vao trong
+                New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
+                Get-ChildItem -Path $session01Item.FullName | ForEach-Object {
+                    Copy-Item -Recurse -Force $_.FullName $targetDir
+                }
                 $downloadSuccess = $true
             } else {
                 Write-Host "        Khong tim thay session-01, chuyen sang ZIP..." -ForegroundColor Yellow
@@ -146,7 +150,11 @@ try {
             throw "Khong tim thay thu muc session-01 sau khi giai nen."
         }
 
-        Copy-Item -Recurse -Force $session01Item.FullName $targetDir
+        # Tao thu muc dich truoc, sau do copy NOI DUNG vao trong
+        New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
+        Get-ChildItem -Path $session01Item.FullName | ForEach-Object {
+            Copy-Item -Recurse -Force $_.FullName $targetDir
+        }
         $downloadSuccess = $true
         Write-Host "        Giai nen thanh cong!" -ForegroundColor Green
     } else {
