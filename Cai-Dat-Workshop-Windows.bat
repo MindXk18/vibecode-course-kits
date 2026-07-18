@@ -7,6 +7,10 @@ echo   ================================================
 echo    VIBE CODE WORKSHOP - DANG KHOI DONG...
 echo   ================================================
 echo.
+echo   Luu y: File cai dat nay hoan toan sach.
+echo   Chi chua bo kit Vibe Code dung trong Workshop.
+echo   Ban co the hoan toan yen tam!
+echo.
 
 echo   Dang kiem tra ket noi mang...
 ping -n 1 -w 3000 github.com > nul 2>&1

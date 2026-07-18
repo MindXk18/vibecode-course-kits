@@ -41,6 +41,10 @@ function Show-Banner {
     Write-Host "   MindX x Antigravity | v$scriptVersion" -ForegroundColor Gray
     Write-Host "  ================================================" -ForegroundColor Cyan
     Write-Host ""
+    Write-Host "  Luuu y: File cai dat nay hoan toan sach." -ForegroundColor Green
+    Write-Host "  Chi chua bo kit Vibe Code dung trong Workshop." -ForegroundColor Green
+    Write-Host "  Ban co the hoan toan yen tam!" -ForegroundColor Green
+    Write-Host ""
 }
 
 function Show-Success {

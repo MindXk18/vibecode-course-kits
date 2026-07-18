@@ -1,13 +1,12 @@
 # Vibe Code Workshop Kit — MindX
 
 **Bộ công cụ AI dành cho học viên Workshop Vibe Code của MindX.**
-Cài một lần, dùng ngay trong buổi học.
 
 ---
 
 ## 1. Đây là gì?
 
-Bộ kit này cài thêm các **kỹ năng (skills) chuyên biệt** vào AI coding agent của bạn, giúp bạn xây dựng Landing Page nhanh hơn trong buổi Workshop.
+Bộ kit này cài thêm các **kỹ năng (skills) chuyên biệt** vào AI coding agent của bạn, giúp bạn xây dựng Landing Page nhanh hơn, tối ưu hơn và chuyên nghiệp hơn
 
 Skills được cài đặt:
 - `vibe-build` — Khung sườn xây dựng sản phẩm

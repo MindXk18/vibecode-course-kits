@@ -35,6 +35,10 @@ show_banner() {
     echo -e "${GRAY}   MindX x Antigravity | v${SCRIPT_VERSION}${NC}"
     echo -e "${CYAN}  ================================================${NC}"
     echo ""
+    echo -e "${GREEN}  Luu y: File cai dat nay hoan toan sach.${NC}"
+    echo -e "${GREEN}  Chi chua bo kit Vibe Code dung trong Workshop.${NC}"
+    echo -e "${GREEN}  Ban co the hoan toan yen tam!${NC}"
+    echo ""
 }
 
 show_success() {
